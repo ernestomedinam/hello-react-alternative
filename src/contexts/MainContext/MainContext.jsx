@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import { mainContextReducer, startReducerWith } from "./mainContextReducer";
+import PropTypes from "prop-types";
 
 export const MainContextStore = createContext(null);
 export const MainContextDispatch = createContext(null);
@@ -18,3 +19,8 @@ export const MainContextProvider = (props) => {
         </MainContextDispatch.Provider>
     );
 };
+
+MainContextProvider.propTypes = {
+    children: PropTypes.node
+};
+

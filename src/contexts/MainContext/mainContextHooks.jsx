@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { MainContextDispatch, MainContextStore } from "./MainContext";
-import { MainDispatchActions } from "./mainContextReducer";
+import { MAIN_DISPATCH_ACTIONS } from "./mainContextReducer";
 
 export function useStore() {
     const store = useContext(MainContextStore);
@@ -15,7 +15,22 @@ export function useActions() {
     if (!dispatch) throw new Error(
         "can't reach dispatch context, the component calling the action may be outside of the context provider wrapper scope 😯"
     );
-    const { BASE_API_URL } = useStore();
+    const { BASE_API_URL, demoItems } = useStore();
+    const toggleColor = useCallback(async function(index) {
+        const newDemoItems = demoItems.map(
+            (item, mapIndex) => {
+                if (index === mapIndex) {
+                    if (item.background === item.initial) {
+                        item.background = "orange";
+                    } else item.background = item.initial
+                }
+                return item;
+            });
+        dispatch({
+            type: MAIN_DISPATCH_ACTIONS.TOGGLE_ITEM_COLOR,
+            payload: newDemoItems
+        });
+    }, [demoItems, dispatch]);
     const getSongs = useCallback(async function() {
         /*
             Fetches to 4Geeks song api to get available songs as an array 
@@ -35,7 +50,7 @@ export function useActions() {
                 return song;
             });
             dispatch({
-                type: MainDispatchActions.SET_SONGS,
+                type: MAIN_DISPATCH_ACTIONS.SET_SONGS,
                 payload: songsWithParsedUrl
             });
         } catch(error) {
@@ -45,6 +60,7 @@ export function useActions() {
     return { 
         // this is what this custom action hook returns when invoked: 
         // functions that do something and then dispatch a specific action to modify the store.
-        getSongs 
+        getSongs,
+        toggleColor
     };
 };
