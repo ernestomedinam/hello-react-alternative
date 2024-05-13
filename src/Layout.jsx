@@ -4,6 +4,9 @@ import { Home } from "./pages/Home/Home";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Demo } from "./pages/Demo/Demo";
 import { Footer } from "./components/Footer/Footer";
+import { NotFound } from "./pages/NotFound/NotFound";
+import { Single } from "./pages/Single/Single";
+import { useActions } from "./contexts/MainContext/mainContextHooks";
 
 export const Layout = (props) => {
     const router = createBrowserRouter(
@@ -22,12 +25,18 @@ export const Layout = (props) => {
                         <Outlet />
                         <Footer />
                     </React.Fragment>
-                )} 
-                errorElement={<h1>Not found!</h1>}>
-                {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
+                )}
+                errorElement={
+                    <React.Fragment>
+                        <Navbar />
+                        <NotFound />
+                        <Footer />
+                    </React.Fragment>
+                }>
+                {/* Nested Routes: Defines sub-routes for elements to take place of <Oulet /> on parent route element prop. */}
                 <Route path= "/" element={<Home />} />
                 <Route path="/demo" element={<Demo />} />
-                {/* <Route path="/single/:theId" element={ <Single />} /> */}  {/* Dynamic route for single items */}
+                <Route path="/single/:demoItemId" element={ <Single />} />  {/* Dynamic route for single items */}
             </Route>
         )
     );

@@ -27,7 +27,7 @@ export const Home = (props) => {
                     <button
                         type="button"
                         className="btn btn-success w-auto mx-auto my-3"
-                        onClick={(event) => getSongs()}>{"Load Rigo's hosted @4Geeks"}</button>
+                        onClick={(event) => getSongs()}>{"Load Rigo's songs hosted @4Geeks"}</button>
                 )}
                 {songs && (
                     <React.Fragment>
