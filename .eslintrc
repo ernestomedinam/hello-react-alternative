@@ -13,7 +13,7 @@
     },
     "settings": { 
         "react": { 
-            "version": "20.9" 
+            "version": "detect" 
         } 
     },
     "plugins": [
