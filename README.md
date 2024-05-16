@@ -5,7 +5,10 @@ lightly opinionated base template for reactJS project with use case examples for
 ## how to use 😎
 - install project dependencies based on boilerplates lock file with `$npm clean-install`
 - start dev server with `$npm run start`
+- test with `$npm run test`
 - code away
+
+> need to add new code for a feature? first thing is to build tests based on desired experience for such feature
 
 > need a new component or page? build them in folders inside src/components or src/pages
 
@@ -16,7 +19,8 @@ lightly opinionated base template for reactJS project with use case examples for
 > need more actions for the same context but the file is too big? split actions based on concerns and build hooks for them (i.e. useConcernActions)
 
 ## pending 🤪
-- testing features
+- add tests for demo, single & not found
+- add tests for actions
 - build reactTs analogue
 
 ## notes 📝
