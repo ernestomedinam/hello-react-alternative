@@ -18,7 +18,9 @@ export const Home = (props) => {
                 <div className="text-center mt-5">
                     <h1 className="display-1 mb-4">{"Hello Rigo!!"}</h1>
                     <p>
-                        <img src={rigoBaby} />
+                        <img
+                            aria-label="image of baby rigo" 
+                            src={rigoBaby} />
                     </p>
                 </div>
             </div>
@@ -27,17 +29,21 @@ export const Home = (props) => {
                     <button
                         type="button"
                         className="btn btn-success w-auto mx-auto my-3"
-                        onClick={(event) => getSongs()}>{"Load Rigo's songs hosted @4Geeks"}</button>
+                        onClick={(event) => getSongs()}>{"click to play Rigo's songs"}</button>
                 )}
                 {songs && (
                     <React.Fragment>
                         <audio
+                            aria-label="audio player"
                             controls 
                             autoPlay
                             src={playingSong?.url || ""}></audio>
-                        <ul className="list-group w-100 my-4 mb-5">
+                        <ul 
+                            role="list"
+                            className="list-group w-100 my-4 mb-5">
                             {songs.map((song) => (
                                 <li 
+                                    role="listitem"
                                     key={song.id}
                                     className={`list-group-item clickable ${playingSong?.id === song.id 
                                         ? "active"
