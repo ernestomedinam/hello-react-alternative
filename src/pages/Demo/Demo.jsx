@@ -16,6 +16,7 @@ export const Demo = (props) => {
                                 // React key for list items; could also use index if there 
                                 // is no id or unique value for each object
                                 key={item.id}  
+                                aria-label="demo item"
                                 className="list-group-item d-flex justify-content-between"
                                 style={{ background: item.background }}>
                                 <Link to={"/single/" + item.id}>

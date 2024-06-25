@@ -19,7 +19,6 @@ lightly opinionated base template for reactJS project with use case examples for
 > need more actions for the same context but the file is too big? split actions based on concerns and build hooks for them (i.e. useConcernActions)
 
 ## pending 🤪
-- add tests for demo, single & not found
 - add tests for actions
 - build reactTs analogue
 

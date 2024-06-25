@@ -6,7 +6,6 @@ import { Demo } from "./pages/Demo/Demo";
 import { Footer } from "./components/Footer/Footer";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Single } from "./pages/Single/Single";
-import { useActions } from "./contexts/MainContext/mainContextHooks";
 
 export const Layout = (props) => {
     const router = createBrowserRouter(
