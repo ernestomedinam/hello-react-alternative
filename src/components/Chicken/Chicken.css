@@ -1,0 +1,58 @@
+.chicken {
+    position: relative;
+    max-width: 10rem;
+    min-width: 10rem;
+    height: auto;
+}
+
+.chicken-face {
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 5.29167;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: none;
+    stroke-opacity: 1;
+}
+
+.chicken-eye {
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 4.39554;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: none;
+}
+
+.chicken-beak {
+    fill: #f6d700;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 5.29167;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: none;
+    stroke-opacity: 1;
+}
+
+.chicken-comb {
+    fill: #ff3a11;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 5.29167;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: none;
+    stroke-opacity: 1;
+}
+
+.cheek-spot {
+    fill: #ffbf99;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 0.879491;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: none;
+}

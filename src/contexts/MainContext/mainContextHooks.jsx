@@ -15,7 +15,7 @@ export function useActions() {
     if (!dispatch) throw new Error(
         "can't reach dispatch context, the component calling the action may be outside of the context provider wrapper scope 😯"
     );
-    const { BASE_API_URL, demoItems } = useStore();
+    const { GEEKS_API_URL, demoItems } = useStore();
     const toggleColor = useCallback(async function(index) {
         const newDemoItems = demoItems.map(
             (item, mapIndex) => {
@@ -39,14 +39,14 @@ export function useActions() {
         */
         try {
             const response = await fetch(
-                `${BASE_API_URL}/sound/songs`
+                `${GEEKS_API_URL}/sound/songs`
             );
             const body = await response.json();
             if (!response.ok) return [body, response.status];
             const songsWithParsedUrl = body.songs.map((song) => { 
                 // here we map songs to create an array of identical song objects 
                 // except that their url now includes the base api url
-                song.url = `${BASE_API_URL}${song.url}`;
+                song.url = `${GEEKS_API_URL}${song.url}`;
                 return song;
             });
             dispatch({
@@ -56,7 +56,7 @@ export function useActions() {
         } catch(error) {
             return [error, error.code || 500];
         }
-    }, [BASE_API_URL, dispatch]);
+    }, [GEEKS_API_URL, dispatch]);
     return { 
         // this is what this custom action hook returns when invoked: 
         // functions that do something and then dispatch a specific action to modify the store.

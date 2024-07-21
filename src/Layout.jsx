@@ -6,6 +6,8 @@ import { Demo } from "./pages/Demo/Demo";
 import { Footer } from "./components/Footer/Footer";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Single } from "./pages/Single/Single";
+import { BarnContextProvider } from "./contexts/BarnContext/BarnContext";
+import { Barn } from "./pages/Barn/Barn";
 
 export const Layout = (props) => {
     const router = createBrowserRouter(
@@ -36,6 +38,14 @@ export const Layout = (props) => {
                 <Route path= "/" element={<Home />} />
                 <Route path="/demo" element={<Demo />} />
                 <Route path="/single/:demoItemId" element={ <Single />} />  {/* Dynamic route for single items */}
+                <Route path="/barn" element={(
+                    <BarnContextProvider>
+                        <Outlet />
+                    </BarnContextProvider>
+                )}>
+                    <Route path="" element={<Barn />} />
+                    {/* <Route path="/:nature/:id" element={<Livestock />} /> */}
+                </Route>
             </Route>
         )
     );

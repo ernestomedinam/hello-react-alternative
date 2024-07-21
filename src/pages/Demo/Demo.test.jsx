@@ -43,7 +43,7 @@ describe("<Demo /> as a page that takes user to specific item pages", async() =>
     });
     it("takes user to /single/1 on click for first link", async() => {
         const demoButton = await screen.findByText(
-            "Check the demo page!"
+            "Demo page"
         );
         const user = userEvent.setup();
         await user.click(demoButton);

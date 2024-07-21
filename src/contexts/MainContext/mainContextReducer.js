@@ -1,5 +1,5 @@
 const STORE_INITIAL_VALUES = {
-    BASE_API_URL: import.meta.env.VITE_GEEKS_API_BASE_URL || "https://playground.4geeks.com",
+    GEEKS_API_URL: import.meta.env.VITE_GEEKS_API_BASE_URL || "https://playground.4geeks.com",
     songs: undefined,
     demoItems: [{
         id: 1,
