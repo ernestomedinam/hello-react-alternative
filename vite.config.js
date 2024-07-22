@@ -28,7 +28,8 @@ export default defineConfig(({mode}) => {
             }
         ],
         server: {
-            port: 8000
+            port: 8000,
+            host: "127.0.0.1"
         },
         test: {
             include: ["./**/*.test.js", "./**/*.test.jsx"],

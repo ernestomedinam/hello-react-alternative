@@ -42,5 +42,38 @@ export const chickensHandlers = [
         () => {
             return HttpResponse.json(chickens);
         }
+    ),
+    http.post(
+        import.meta.env.VITE_BARN_API_BASE_URL + "/chickens",
+        async ({
+            request,
+            params
+        }) => {
+            const body = await request.json();
+            if (
+                !body.name || body.name === "" ||
+                !body.color || body.color === "") return new HttpResponse(
+                    JSON.stringify("name and color needed... 😐"),
+                    {status: 400}
+                );
+                return new HttpResponse(JSON.stringify({
+                    id: 10923,
+                    name: body.name,
+                    color: [ body.color, "#333333" ],
+                    traits: [{
+                        id: 23,
+                        trait: "brave",
+                        order: 1
+                    }, {
+                        id: 25,
+                        trait: "sorry",
+                        order: 2
+                    }, {
+                        id: 26,
+                        trait: "brave",
+                        order: 3
+                    }]
+                })) 
+        }
     )
 ];
