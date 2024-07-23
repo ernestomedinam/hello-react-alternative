@@ -6,6 +6,7 @@ lightly opinionated base template for reactJS project with use case examples for
 - build `.env` file based on `.env.example` and update variable values
 - start dev server with `$npm run start`
 - test with `$npm run test`
+- lint with `$npm run lint`
 - code away
 - build with `$npm run build`
 
