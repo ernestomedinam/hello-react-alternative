@@ -9,9 +9,11 @@ export const Navbar = (props) => {
 				<Link to="/">
 					<span className="navbar-brand mb-0 h1">{"React Boilerplate"}</span>
 				</Link>
-                <Link to="/demo" className="ms-auto btn btn-primary">
-                    {"Demo page"}
-                </Link>
+                {!location.pathname.includes("demo") && (
+					<Link to="/demo" className="ms-auto btn btn-primary">
+						{"Demo page"}
+					</Link>
+				)}
 				{!location.pathname.includes("barn") && (
 					<Link to="/barn" className="ms-2 btn btn-success">
 						{"Check the barn!"}
