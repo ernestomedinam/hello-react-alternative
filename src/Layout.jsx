@@ -8,6 +8,7 @@ import { NotFound } from "./pages/NotFound/NotFound";
 import { Single } from "./pages/Single/Single";
 import { BarnContextProvider } from "./contexts/BarnContext/BarnContext";
 import { Barn } from "./pages/Barn/Barn";
+import { Livestock } from "./pages/Livestock/Livestock";
 
 export const Layout = (props) => {
     const router = createBrowserRouter(
@@ -44,7 +45,7 @@ export const Layout = (props) => {
                     </BarnContextProvider>
                 )}>
                     <Route path="" element={<Barn />} />
-                    {/* <Route path="/:nature/:id" element={<Livestock />} /> */}
+                    <Route path=":nature/:id" element={<Livestock />} />
                 </Route>
             </Route>
         )

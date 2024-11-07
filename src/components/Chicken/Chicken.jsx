@@ -2,24 +2,28 @@ import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import "./Chicken.css";
 import { Tooltip } from "../Tooltip/Tooltip";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const Chicken = ({chicken}) => {
+    const navigate = useNavigate();
+    const {id} = useParams();
     const intro = useMemo(() => {
-        return `This is the story of a ${
-            chicken.traits[0].trait
-        }, ${
-            chicken.traits[1].trait
-        }, ${
-            chicken.traits[2].trait
-        } ${
-            chicken.color[0]
-        } chicken named ${
-            chicken.name
-        }... it all starts on a ${
+        let _intro = "This is the story of a ";
+        const traits = [...chicken.traits];
+        traits.sort((tA, tB) => tA.order - tB.order);
+        while (traits.length > 0) {
+            const trait = traits.shift();
+            _intro += `${trait.trait}`;
+            if (trait.length > 0) _intro += ", ";
+            else _intro += " ";
+        }
+        _intro += `chicken named ${chicken.name}... `;
+        _intro += `it all starts on a ${
             new Date().toLocaleDateString("en-US", {
                 weekday: "long"
             })
         } night, while standing in front of the road...`;
+        return _intro; 
     }, [chicken]);
     return (
         <Tooltip
@@ -28,7 +32,14 @@ export const Chicken = ({chicken}) => {
             placement={"top"}>
             <div
                 aria-label={`${chicken.name} the chicken`}
-                className="chicken">
+                className={`chicken ${id ? "huge" : ""}`}
+                style={{
+                    cursor: id ? "none" : "pointer"
+                }}
+                onClick={(event) => {
+                    if (id) return;
+                    navigate(`/barn/chickens/${chicken.id}`);
+                }}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 135.46666 135.46667"

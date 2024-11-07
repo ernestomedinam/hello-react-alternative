@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it } from "vitest";
-import { renderComponentForTest } from "../../utils/testHelpers";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { renderAtPath, renderComponentForTest } from "../../utils/testHelpers";
 import { Demo } from "./Demo";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -34,13 +34,16 @@ describe("<Demo /> as a page with an example use case for useState", () => {
 });
 
 describe("<Demo /> as a page that takes user to specific item pages", async() => {
+    let router;
     beforeEach(() => {
-        render(
-            <MainContextProvider>
-                <Layout />
-            </MainContextProvider>
-        );
+        router = renderAtPath(["/"]);
+        // render(
+        //     <MainContextProvider>
+        //         <Layout />
+        //     </MainContextProvider>
+        // );
     });
+    afterEach(() => console.log(window.location.href));
     it("takes user to /single/1 on click for first link", async() => {
         const demoButton = await screen.findByText(
             "Demo page"
@@ -51,7 +54,7 @@ describe("<Demo /> as a page that takes user to specific item pages", async() =>
         const firstLi = lis[0];
         const firstLink = firstLi.querySelector("a");
         await user.click(firstLink);
-        const url = window.location.href;
+        const url = router.state.location.pathname;
         expect(url.endsWith("/single/1")).toBeTruthy();
     });
 });

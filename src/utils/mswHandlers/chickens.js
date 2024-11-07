@@ -43,6 +43,25 @@ export const chickensHandlers = [
             return HttpResponse.json(chickens);
         }
     ),
+    http.get(
+        import.meta.env.VITE_BARN_API_BASE_URL + `/chickens/:id`,
+        async ({
+            request,
+            params
+        }) => {
+            const chicken = chickens.find(
+                (c) => c.id.toString() === params.id
+            );
+            if (!chicken) return new HttpResponse(
+                "no such chicken 😐", {
+                    status: 404
+                }
+            );
+            return new HttpResponse(JSON.stringify(chicken), {
+                status: 200
+            })
+        }
+    ),
     http.post(
         import.meta.env.VITE_BARN_API_BASE_URL + "/chickens",
         async ({

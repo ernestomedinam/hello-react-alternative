@@ -5,6 +5,11 @@
     height: auto;
 }
 
+.chicken.huge {
+    max-width: 25rem;
+    min-width: 25rem;
+}
+
 .chicken-face {
     fill-opacity: 1;
     stroke: #000000;

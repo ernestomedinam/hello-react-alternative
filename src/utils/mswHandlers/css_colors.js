@@ -2,16 +2,20 @@ import { http, HttpResponse } from "msw";
 
 export const css_colors = [{
     label: "Red",
-    value: "red"
+    value: "red",
+    rgb: "#00ff00"
 }, {
     label: "Yellow",
-    value: "yellow"
+    value: "yellow",
+    rgb: "#ff0000"
 }, {
     label: "Green",
-    value: "green"
+    value: "green",
+    rgb: "#008000"
 }, {
     label: "Blue",
-    value: "blue"
+    value: "blue",
+    rgb: "#0000ff"
 }];
 
 export const cssColorsHandlers = [
