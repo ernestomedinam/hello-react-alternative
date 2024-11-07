@@ -21,7 +21,6 @@ lightly opinionated base template for reactJS project with use case examples for
 > need more actions for the same context but the file is too big? split actions based on concerns and build hooks for them (i.e. useConcernActions)
 
 ## pending 🤪
-- complete single livestock detail view route/component
 - add loader component and add where it makes sense for user experience
 - refactor based on module/feature folder structure, instead of file type folder structure
 - update reactTs analogue
